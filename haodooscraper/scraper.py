@@ -142,6 +142,7 @@ def find_volume_id_3(onclick):
 def convert_to_dl_url(_id, ext):
     """
     According book_id and book type to generate download url.
+    http://www.haodoo.net/?M=d&P=A430.epub
     """
     result = list(urlparse(base_url))
     result[4] = urlencode({
@@ -149,6 +150,17 @@ def convert_to_dl_url(_id, ext):
         "P": "{0}.{1}".format(_id, ext)})
     return urlunparse(result)
 
+def convert_to_book_url(_id):
+    """
+    According book_id and book type to generate download url.
+    http://www.haodoo.net/?M=u&P=A430:0&L=book
+    """
+    result = list(urlparse(base_url))
+    result[4] = urlencode({
+        "M": "u",
+        "P": "{0}:0".format(_id),
+        "L": "book"})
+    return urlunparse(result)
 
 def extract_set_title(html):
     start_pos = html.find('SetTitle("')
@@ -244,6 +256,8 @@ def analysis_book_html_and_save(book, html):
                     'bookid': book.id,
                 }
                 exts = []
+                dl_link = convert_to_book_url(_id)
+                exts.append({"volumeid": _id, "type": "book", "link": dl_link})
             elif "DownloadEpub" in onclick:
                 dl_link = convert_to_dl_url(_id, "epub")
                 exts.append({"volumeid": _id, "type": "epub", "link": dl_link})

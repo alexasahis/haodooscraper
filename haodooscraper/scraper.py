@@ -247,6 +247,9 @@ def analysis_book_html_and_save(book, html):
             elif "DownloadEpub" in onclick:
                 dl_link = convert_to_dl_url(_id, "epub")
                 exts.append({"volumeid": _id, "type": "epub", "link": dl_link})
+            elif "DownloadVEpub" in onclick:
+                dl_link = convert_to_dl_url(_id, "epub")
+                exts.append({"volumeid": _id, "type": "vpub", "link": dl_link})
             elif "DownloadUpdb" in onclick:
                 dl_link = convert_to_dl_url(_id, "updb")
                 exts.append({"volumeid": _id, "type": "updb", "link": dl_link})

@@ -17,7 +17,7 @@ if db_url:
     db_url = db_url.replace("mysql://", "mysql+pymysql://")
     db_url = db_url + "haodooscraper?charset=utf8"
 else:
-    db_url = "sqlite:///db.sqlite3"
+    db_url = "sqlite:///db.sqlite3?check_same_thread=False"
 
 # print("db_url={}".format(db_url))
 engine = create_engine(db_url)

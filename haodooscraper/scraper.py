@@ -276,6 +276,9 @@ def urls():
         {"M": "kuan", "P": "1"},
         {"M": "ken", "P": "home"},
         {"M": "marina", "P": "home"},
+        {"M": "liao", "P": "home"},
+        {"M": "lui", "P": "home"},
+        {"M": "hj", "P": "home"},
 
         {"M": "hd", "P": "100"},
         {"M": "hd", "P": "wisdom"},
